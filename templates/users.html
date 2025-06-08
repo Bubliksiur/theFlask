@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lista Użytkowników</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .user-table-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.249);
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.471);
+        }
+
+        thead {
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #bababa;
+        }
+
+        tbody tr:hover {
+            background-color: #f2f9ff;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .back-button {
+            display: block;
+            margin: 25px auto 0 auto;
+            padding: 12px 25px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            width: fit-content;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="user-table-container">
+        <h1>Lista użytkowników</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Klasa</th>
+                    <th>Średnia ocen</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.imie }}</td>
+                    <td>{{ user.nazwisko }}</td>
+                    <td>{{ user.klasa }}</td>
+                    <td>{{ user.srednia_ocen }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="back-button">Wróć</a>
+    </div>
+</body>
+
+</html>

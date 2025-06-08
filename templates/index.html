@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Dodaj sie do bazy danych</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div>
+    <form method="POST" action="/add">
+        <h2>Dodaj sie do bazy danych!</h2>
+        <input placeholder="imie" type="text" name="imie">
+        <input placeholder="nazwisko" type="text" name="nazwisko">
+        <input placeholder="klasa" type="text" name="klasa">
+        <input placeholder="srednia ocen" type="number" step="0.01" name="srednia_ocen">
+        <button type="submit">Dodaj się do bazy danych!</button>
+        <a href="/users" aria-label="Show users in database">
+            <button type="button">Zobacz osoby w bazie danych</button>
+        </a>
+    </form>
+</div>
+
+<footer>
+    <h4>Dev:</h4>
+    <p>Flask, HTML, Javascript: <span>Bubliksiur</span></p>
+    <p>Styling: Blackbox <span>(I'm lazy)</span></p>
+</footer>
+
+<script>
+    document.getElementById('userForm').addEventListener('submit', function (e) {
+        let imie = document.getElementById('imie').value.trim();
+        let nazwisko = document.getElementById('nazwisko').value.trim();
+        let klasa = document.getElementById('klasa').value.trim();
+        let srednia = document.getElementById('srednia_ocen').value.trim();
+        if (!imie || !nazwisko || !klasa || !srednia) {
+            e.preventDefault();
+            alert('Wszystkie pola muszą być wypełnione!');
+        }
+    });
+</script>
+{% endblock %}
