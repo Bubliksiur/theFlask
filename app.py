@@ -15,7 +15,7 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
-@app.route('/theFlask')
+@app.route('/theFlask/')
 def index():
     return render_template('index.html')
 
